@@ -99,7 +99,9 @@ llm-reddit-advice-eval.zip	Complete inference and evaluation scripts
 checkpoint-224.zip	Fine-tuned GPT-2 model checkpoint
 gpt2-finetune-full-backup.zip	Full fine-tuning code, data, outputs
 requirements.txt	Exact Python environment for reproducibility
+
 Project Structure
+
 llm-reddit-advice-eval/
 ├── generate_and_score_local.py        # Generates advice + scores similarity
 ├── test_one_prompt.py                 # Test single advice query
