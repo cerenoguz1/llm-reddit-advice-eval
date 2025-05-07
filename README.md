@@ -6,7 +6,10 @@ This project evaluates the ability of a **fully local large language model** (Gp
 ⚠️ DISCLAIMER:
 This script uses real prompts scraped from Reddit's r/Advice. As such, 'scored_advice_responses.csv' may contain sensitive, disturbing, or sexual content. Use and review responsibly.
 
-Note: This project opted for full local inference rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. This project focuses exactly on evaluation. All LLM inference is run locally using Hugging Face's transformers library. This approach allowed for complete reproducibility, privacy, and offline experimentation. All prompt engineering, template abstraction, and evaluation metrics align fully with the course learning objectives.
+**Note:** This project opted for full local inference rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. This project focuses exactly on evaluation. All LLM inference is run locally using Hugging Face's transformers library. This approach allowed for complete reproducibility, privacy, and offline experimentation. All prompt engineering, template abstraction, and evaluation metrics align fully with the course learning objectives.
+
+> **Note 2:** This project initially explored using the Gemma 2B Instruct model. However, due to local hardware limitations, we transitioned to GPT-2 for model fine-tuning and inference. All final results, evaluations, and deliverables are based on GPT-2.
+
 
 Final Project Report
 Team: 2 aka CAS
