@@ -12,11 +12,9 @@ This script uses real prompts scraped from Reddit's r/Advice. As such, `scored_a
 
 ## Important Notes
 
-- **Local Inference:**  
-  This project opted for **full local inference** rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. All LLM inference is run locally using Hugging Face's `transformers` library.
+- This project opted for **full local inference** rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. All LLM inference is run locally using Hugging Face's `transformers` library.
 
-- **Why Not Gemma:**  
-  The project initially explored using Google's Gemma 2B Instruct model. However, due to strict usage restrictions and hardware limitations (Gemma requires significant VRAM and CPU resources), we decided not to proceed with it. Although the model was downloaded after agreeing to Google's license terms, it was not used or fine-tuned.  
+- The project initially explored using Google's Gemma 2B Instruct model. However, due to strict usage restrictions and hardware limitations (Gemma requires significant VRAM and CPU resources), we decided not to proceed with it. Although the model was downloaded after agreeing to Google's license terms, it was not used or fine-tuned.  
 **All experiments, results, and deliverables are based on GPT-2.**
 
 ---
@@ -26,7 +24,7 @@ This script uses real prompts scraped from Reddit's r/Advice. As such, `scored_a
 - **Team:** Group 2 (aka CAS)  
 - **GitHub Repository:** https://github.com/cerenoguz1/llm-reddit-advice-eval  
 - **Google Drive Folder:** https://drive.google.com/drive/folders/1hSICHUP55ftErAFduyBWBGZPxUj5qEdA?usp=sharing  
-> ⬇️ **Download-only requirement:** `checkpoint-224.zip` (fine-tuned model)
+ **Download-only requirement:** `checkpoint-224.zip` (fine-tuned model)
 
 ### Google Drive Contents
 
