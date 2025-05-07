@@ -45,11 +45,11 @@ cd llm-reddit-advice-eval"
 
 ---------------------------------------------------------------------------------------------
 
-Compute cosine similarity between human and model responses using:
+Compute similarity between human and model responses using:
   sentence-transformers → all-MiniLM-L6-v2
   Average similarity: ~0.39
   Best performance on neutral/factual advice
-  Weakest performance on emotionally nuanced topics
+  Weakest performance on emotional topics
 
 
 Prompt:
