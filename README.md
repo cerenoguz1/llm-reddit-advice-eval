@@ -4,13 +4,10 @@
 This project evaluates the ability of a **fully local large language model (GPT-2)** to generate helpful responses to real-life advice questions. We compare LLM responses to human-written answers using semantic similarity with Sentence-BERT.
 
 ---
+## Important Notes
 
 ⚠️ **DISCLAIMER**  
 This script uses real prompts scraped from Reddit's r/Advice. As such, `scored_advice_responses.csv` may contain sensitive, disturbing, or sexual content. Use and review responsibly.
-
----
-
-## Important Notes
 
 - This project opted for **full local inference** rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. All LLM inference is run locally using Hugging Face's `transformers` library.
 
