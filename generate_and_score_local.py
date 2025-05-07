@@ -10,7 +10,8 @@ from sentence_transformers import SentenceTransformer, util
 
 sbert = SentenceTransformer('all-MiniLM-L6-v2')
 
-df = pd.read_csv("/Users/cerenoguz/Downloads/reddit_advice_dataset.csv").head(10)
+df = pd.read_csv("reddit_advice_dataset.csv").head(10)
+
 
 
 
