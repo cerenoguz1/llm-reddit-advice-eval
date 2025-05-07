@@ -3,6 +3,10 @@ CS 383 Final Project – Spring 2025
 
 This project evaluates the ability of a **fully local large language model** (Gemma 2B Instruct) to generate helpful responses to real-life advice questions. We compare LLM responses to human-written answers using semantic similarity with Sentence-BERT.
 
+⚠️ DISCLAIMER:
+This script uses real prompts scraped from Reddit's r/Advice. As such, 'scored_advice_responses.csv' may contain sensitive, disturbing, or sexual content. Use and review responsibly.
+
+
 ---
 
 Files
