@@ -1,14 +1,14 @@
 Local LLM Advice Evaluation  
 CS 383 Final Project – Spring 2025
 
-This project evaluates the ability of a **fully local large language model** (Gpt2) to generate helpful responses to real-life advice questions. We compare LLM responses to human-written answers using semantic similarity with Sentence-BERT.
+This project evaluates the ability of a **fully local large language model** (GPT-2) to generate helpful responses to real-life advice questions. We compare LLM responses to human-written answers using semantic similarity with Sentence-BERT.
 
 ⚠️ DISCLAIMER:
 This script uses real prompts scraped from Reddit's r/Advice. As such, 'scored_advice_responses.csv' may contain sensitive, disturbing, or sexual content. Use and review responsibly.
 
 **Note:** This project opted for full local inference rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. This project focuses exactly on evaluation. All LLM inference is run locally using Hugging Face's transformers library. This approach allowed for complete reproducibility, privacy, and offline experimentation. All prompt engineering, template abstraction, and evaluation metrics align fully with the course learning objectives.
 
-> **Note 2:** This project initially explored using the Gemma 2B Instruct model. However, due to local hardware limitations, we transitioned to GPT-2 for model fine-tuning and inference. All final results, evaluations, and deliverables are based on GPT-2.
+> **Note 2:** This project initially explored using Google's Gemma 2B Instruct model. However, due to strict usage restrictions and hardware limitations (Gemma requires significant VRAM and CPU resources), we decided not to proceed with it. Although the model was downloaded after agreeing to Google's license terms, we did not use or fine-tune Gemma in this project. All experiments, results, and deliverables are based on GPT-2.
 
 
 Final Project Report
