@@ -1,10 +1,10 @@
-#Local LLM Advice Evaluation (CS 383 Final Project)
+Local LLM Advice Evaluation (CS 383 Final Project)
 
 This project evaluates the ability of a local large language model (Gemma 2B) to generate helpful advice using real prompts from Reddit's r/Advice community. Model outputs are compared against human-written suggestions using semantic similarity (Sentence-BERT).
 
 ---
 
-##Contents
+Contents
 
 - `reddit_advice_dataset.csv`: Real prompts + top human responses from Reddit
 - `generate_and_score_local.py`: Runs the local model and generates LLM advice
@@ -13,7 +13,7 @@ This project evaluates the ability of a local large language model (Gemma 2B) to
 
 ---
 
-##Setup
+Setup
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/llm-reddit-advice-eval.git
