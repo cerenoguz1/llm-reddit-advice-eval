@@ -1,7 +1,7 @@
 # Local LLM Advice Evaluation  
 **CS 383 Final Project – Spring 2025**
 
-This project evaluates the ability of a **fully local large language model (GPT-2)** to generate helpful responses to real-life advice questions. We compare LLM responses to human-written answers using semantic similarity with Sentence-BERT.
+This project evaluates the ability of a **fully local large language model (GPT-2)** to generate helpful responses to real-life advice questions. I compared LLM responses to human-written answers using semantic similarity with Sentence-BERT.
 
 ---
 ## Important Notes
@@ -11,14 +11,14 @@ This script uses real prompts scraped from Reddit's r/Advice. As such, `scored_a
 
 - This project opted for **full local inference** rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. All LLM inference is run locally using Hugging Face's `transformers` library.
 
-- The project initially explored using Google's Gemma 2B Instruct model. However, due to strict usage restrictions and hardware limitations (Gemma requires significant VRAM and CPU resources), we decided not to proceed with it. Although the model was downloaded after agreeing to Google's license terms, it was not used or fine-tuned.  
+- The project initially explored using Google's Gemma 2B Instruct model. However, due to strict usage restrictions and hardware limitations (Gemma requires significant VRAM and CPU resources), I have decided to continue with GPT-2. Although the model was downloaded after agreeing to Google's license terms, it was not used or fine-tuned.  
 **All experiments, results, and deliverables are based on GPT-2.**
 
 ---
 
 ## Final Project Report
 
-- **Team:** Group 2 (aka CAS)  
+- **Team:** Group 2 (aka CAS)  - only Ceren Oguz
 - **GitHub Repository:** https://github.com/cerenoguz1/llm-reddit-advice-eval  
 - **Google Drive Folder:** https://drive.google.com/drive/folders/1hSICHUP55ftErAFduyBWBGZPxUj5qEdA?usp=sharing  
  **Download-only requirement:** `checkpoint-224.zip` (fine-tuned model)
