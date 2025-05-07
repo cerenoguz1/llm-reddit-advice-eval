@@ -92,7 +92,7 @@ Prompt: <user advice question>\nAdvice:
 - `do_sample=True`  
 - `pad_token_id=50256` (eos_token)
 
-**API Use:** None. All inference is local using `transformers` and `Sentence-BERT`.
+**API Use:** All inference is local using `transformers` and `Sentence-BERT`.
 
 ---
 
