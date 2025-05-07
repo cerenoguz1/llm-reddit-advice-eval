@@ -120,21 +120,12 @@ Prompt: <user advice question>\nAdvice:
 - **Lowest:** -0.046  
 - **Average:** 0.1799
 
-**Discussion:**  
-GPT-2 sometimes generates semantically useful advice, but overall similarity remains low. More complex reasoning and personalization would benefit from larger or instruction-tuned models.
-
 ---
 
 ## 6. Feedback and Communication
 
-**Feedback Received:**  
-- Improve reproducibility  
-- Clarify model file locations  
-- Provide more examples and README clarity
-
-**How We Addressed It:**  
 - Uploaded all code and checkpoints to GitHub/Drive  
-- Provided `test_one_prompt.py` for TAs  
+- Provided `test_one_prompt.py` for instructors  
 - Added more structured documentation in the README
 
 ---
