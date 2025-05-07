@@ -1,3 +1,16 @@
 pandas
 sentence-transformers
 
+import pkg_resources
+import pandas as pd
+
+# Get a list of all installed packages and their versions
+packages = pkg_resources.working_set
+requirements = sorted([f"{pkg.project_name}=={pkg.version}" for pkg in packages])
+
+# Save to requirements.txt
+requirements_path = "/mnt/data/requirements.txt"
+with open(requirements_path, "w") as f:
+    f.write("\n".join(requirements))
+
+requirements_path

@@ -1,68 +1,71 @@
 import os
-os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
 import pandas as pd
-import subprocess
-import time
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 from sentence_transformers import SentenceTransformer, util
+import torch
 
+# Paths
+MODEL_PATH = "/Users/cerenoguz/gpt2-finetune/gpt2-finetuned/checkpoint-224"
+
+DATASET_PATH = "reddit_advice_dataset.csv"
+OUTPUT_PATH = "scored_advice_responses.csv"
+
+# Load models
+print("Loading Sentence-BERT model...")
+sbert = SentenceTransformer("all-MiniLM-L6-v2")
+
+print("Loading fine-tuned GPT-2 model...")
+tokenizer = GPT2Tokenizer.from_pretrained(MODEL_PATH)
+model = GPT2LMHeadModel.from_pretrained(MODEL_PATH)
+model.eval()
+
+# Device config
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model.to(device)
+
+# Load data
+df = pd.read_csv(DATASET_PATH)
+df = df.dropna(subset=["prompt", "suggestion"]).sample(n=100, random_state=42)  # test subset
+
+llm_responses = []
+similarities = []
+
+print()
 print("DISCLAIMER:")
 print("This project uses real prompts scraped from Reddit's r/Advice forum.")
 print("As a result, some entries in 'scored_advice_responses.csv' may contain sensitive, disturbing, or sexual content.")
 print("Please review the file with caution.\n")
 
+for idx, row in df.iterrows():
+    prompt = row["prompt"]
 
-sbert = SentenceTransformer('all-MiniLM-L6-v2')
-
-df = pd.read_csv("reddit_advice_dataset.csv").sample(n=2)
-
-
-llm_responses = []
-similarities = []
-
-def get_llm_response(prompt):
-    try:
-        result = subprocess.run(
-            ["llm", "-m", "gemma2", prompt],
-            capture_output=True,
-            text=True,
-            timeout=60
-        )
-        return result.stdout.strip()
-    except Exception as e:
-        print(f"Error on prompt: {prompt[:30]} — {e}")
-        return ""
-
-def compute_similarity(a, b):
-    emb1 = sbert.encode(a, convert_to_tensor=True)
-    emb2 = sbert.encode(b, convert_to_tensor=True)
-    return float(util.cos_sim(emb1, emb2).item())
-
-for i, row in df.iterrows():
-    prompt = row['prompt']
-    human = row['suggestion']
+    # Encode prompt and generate response
+    inputs = tokenizer.encode(prompt, return_tensors="pt").to(device)
+    outputs = model.generate(inputs, max_new_tokens=100, do_sample=True)
+    generated_text = tokenizer.decode(outputs[0], skip_special_tokens=True)
     
-    print(f"[{i+1}/{len(df)}] Generating for: {prompt[:40]}...")
+    # Trim prompt from the generated response
+    llm_answer = generated_text[len(prompt):].strip()
+    llm_responses.append(llm_answer)
 
-    llm_reply = get_llm_response(prompt)
-    sim = compute_similarity(human, llm_reply)
+    # Similarity
+    try:
+        emb1 = sbert.encode(row["suggestion"], convert_to_tensor=True)
+        emb2 = sbert.encode(llm_answer, convert_to_tensor=True)
+        sim_score = float(util.pytorch_cos_sim(emb1, emb2).item())
+    except:
+        sim_score = 0.0
+    similarities.append(sim_score)
 
-    llm_responses.append(llm_reply)
-    similarities.append(sim)
+# Save results
+df["llm_response"] = llm_responses
+df["similarity"] = similarities
+df.to_csv(OUTPUT_PATH, index=False)
 
-    time.sleep(1.0)  # reduce CPU stress
-
-
-df['llm_response'] = llm_responses
-df['similarity'] = similarities
-
-df.to_csv("scored_advice_responses.csv", index=False)
-df = pd.read_csv("scored_advice_responses.csv")
-avg_sim = df['similarity'].mean()
-
-print("Highest similarity:", df['similarity'].max())
-print("Lowest similarity:", df['similarity'].min())
+# Print stats
+df = pd.read_csv(OUTPUT_PATH)
+avg_sim = df["similarity"].mean()
+print("Highest similarity:", df["similarity"].max())
+print("Lowest similarity:", df["similarity"].min())
 print(f"Average similarity score: {avg_sim:.4f}")
-
-print("Done! Results have been saved to scored_advice_responses.csv")
-
+print(f"Done! Results have been saved to {OUTPUT_PATH}")

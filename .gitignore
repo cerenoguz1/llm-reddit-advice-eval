@@ -1,5 +1,12 @@
+myenv*/       # any virtual env
+.env*/        # common dotenv folders
 __pycache__/
 *.pyc
+*.pkl
+*.pt
+*.dylib       # block large binary lib files
+*.so
 *.egg-info/
-.env
-myenv/
+
+myenv*/       # any virtual environment
+*.dylib       # large binaries
