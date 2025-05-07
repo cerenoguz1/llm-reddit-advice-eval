@@ -1,6 +1,6 @@
 Local LLM Advice Evaluation (CS 383 Final Project)
 
-This project evaluates the ability of a local large language model (Gemma 2B) to generate helpful advice using real prompts from Reddit's r/Advice community. Model outputs are compared against human-written suggestions using semantic similarity (Sentence-BERT).
+This project evaluates the ability of a local large language model (Gemma 2B) to generate helpful advice using real prompts from Reddit's r/Advice community. Model outputs are compared against human-written suggestions using semantic similarity.
 
 ---
 
