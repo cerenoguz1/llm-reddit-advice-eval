@@ -12,7 +12,7 @@ Final Project Report
 Team: 2 aka CAS
 GitHub Repository: https://github.com/cerenoguz1/llm-reddit-advice-eval
 The complete Google Drive link: https://drive.google.com/drive/folders/1hSICHUP55ftErAFduyBWBGZPxUj5qEdA?usp=sharing
-Note: The only file that would be needed to download to evaluate the project is the checkpoint-224.zip. 
+Note: The only file that would be needed to download to evaluate the project is the checkpoint-224.zip (fine-tuned model). 
 
 
 1. Problem Statement
