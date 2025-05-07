@@ -6,13 +6,20 @@ This project evaluates the ability of a **fully local large language model** (Ge
 ⚠️ DISCLAIMER:
 This script uses real prompts scraped from Reddit's r/Advice. As such, 'scored_advice_responses.csv' may contain sensitive, disturbing, or sexual content. Use and review responsibly.
 
-Note: This project opted for full local inference rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. This project focuses exactly on evaluation. All of the LLM inference is ran locally using Hugging Face's transformers library. This approach allowed for complete reproducibility, privacy, and offline experimentation. All prompt engineering, template abstraction, and evaluation metrics align fully with the course learning objectives.
+Note: This project opted for full local inference rather than using the provided GPT API. This allowed complete control over evaluation and reproducibility, while still meeting all core project objectives. This project focuses exactly on evaluation. All LLM inference is run locally using Hugging Face's transformers library. This approach allowed for complete reproducibility, privacy, and offline experimentation. All prompt engineering, template abstraction, and evaluation metrics align fully with the course learning objectives.
 
 Final Project Report
 Team: 2 aka CAS
 GitHub Repository: https://github.com/cerenoguz1/llm-reddit-advice-eval
 The complete Google Drive link: https://drive.google.com/drive/folders/1hSICHUP55ftErAFduyBWBGZPxUj5qEdA?usp=sharing
 Note: The only file that would be needed to download to evaluate the project is the checkpoint-224.zip (fine-tuned model). 
+
+| File                          | Description                                |
+|-------------------------------|--------------------------------------------|
+| llm-reddit-advice-eval.zip    | Complete inference and evaluation scripts  |
+| checkpoint-224.zip            | Fine-tuned GPT-2 model checkpoint          |
+| gpt2-finetune-full-backup.zip | Full fine-tuning code, data, outputs       |
+| requirements.txt              | Python environment for reproducibility     |
 
 
 1. Problem Statement
