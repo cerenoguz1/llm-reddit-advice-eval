@@ -1,12 +1,19 @@
-myenv*/       # any virtual env
-.env*/        # common dotenv folders
+# Ignore virtual environments
+myenv*/
+myenv311/
+
+# Python artifacts
 __pycache__/
 *.pyc
 *.pkl
 *.pt
-*.dylib       # block large binary lib files
-*.so
+*.bin
 *.egg-info/
+*.safetensors
+*.so
+*.dylib
 
-myenv*/       # any virtual environment
-*.dylib       # large binaries
+# Notebooks & dotenv
+*.ipynb_checkpoints
+.env
+.env*/
