@@ -6,13 +6,15 @@ import subprocess
 import time
 from sentence_transformers import SentenceTransformer, util
 
+print("DISCLAIMER:")
+print("This project uses real prompts scraped from Reddit's r/Advice forum.")
+print("As a result, some entries in 'scored_advice_responses.csv' may contain sensitive, disturbing, or sexual content.")
+print("Please review the file with caution.\n")
 
 
 sbert = SentenceTransformer('all-MiniLM-L6-v2')
 
-df = pd.read_csv("reddit_advice_dataset.csv").head(10)
-
-
+df = pd.read_csv("reddit_advice_dataset.csv").sample(n=2)
 
 
 llm_responses = []
@@ -50,8 +52,17 @@ for i, row in df.iterrows():
 
     time.sleep(1.0)  # reduce CPU stress
 
+
 df['llm_response'] = llm_responses
 df['similarity'] = similarities
 
 df.to_csv("scored_advice_responses.csv", index=False)
-print("Done! Results saved to scored_advice_responses.csv")
+df = pd.read_csv("scored_advice_responses.csv")
+avg_sim = df['similarity'].mean()
+
+print("Highest similarity:", df['similarity'].max())
+print("Lowest similarity:", df['similarity'].min())
+print(f"Average similarity score: {avg_sim:.4f}")
+
+print("Done! Results have been saved to scored_advice_responses.csv")
+
