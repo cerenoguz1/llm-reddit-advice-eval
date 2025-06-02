@@ -22,12 +22,12 @@ checkpoint-224.zip	Fine-tuned GPT-2 model
 gpt2-finetune-full-backup.zip	All code, training data, and outputs
 requirements.txt	Reproducible Python environment
 
-1.** Problem Statement:**
+1. ** Problem Statement:**
    
 Goal: Assess whether a fine-tuned GPT-2 can generate meaningful, helpful responses to advice questions sourced from Reddit. Core features include:
 Local fine-tuning and inference, No third-party LLM APIs, Semantic evaluation using Sentence-BERT.
 
-2.** Dataset:**
+2. ** Dataset:**
 
 Source: Reddit's r/Advice subreddit (via Reddit API + manual curation)
 Stats:
@@ -38,7 +38,8 @@ Preprocessing:
 Cleaned, formatted, and converted to Hugging Face JSONL
 Train/Test Split: 4,500 / 500
 
-3.** Prompt Format:**
+3. ** Prompt Format:**
+
 Used During Fine-Tuning & Inference:
 Prompt: <user advice question>\nAdvice:
 Prompt: My prom dress got ruined the day of the event. What should I do?\nAdvice:
@@ -52,7 +53,8 @@ do_sample=True
 pad_token_id=50256 (eos_token)
 ** There are more example outputs inside the Google Drive.
 
-4.** Evaluation:**
+4. ** Evaluation:**
+   
 Metric:
 Sentence-BERT (all-MiniLM-L6-v2) cosine similarity
 Steps:
@@ -65,7 +67,7 @@ No need for expensive APIs
 Cons:
 GPT-2 occasionally misses emotional depth or sensitivity
 
-5.** Results:**
+5. ** Results:**
 Metric	Value
 Highest	0.506
 Lowest	-0.046
